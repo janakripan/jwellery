@@ -11,29 +11,29 @@ function Home() {
    <main className='bg-[#F2E9E4]  mt-16 overflow-x-hidden'>
 
       
-   <section>
+    <section>
     <Hero/>
    </section>
 
-   <section>
-    <Zodiac/>
+    <section>
+     <Zodiac/>
    </section>
 
-   <section>
-    <Range/>
-   </section>
+    <section>
+     <Range/>
+    </section>
 
-   <section>
-    <Products/>
-   </section>
+    <section>
+     <Products/>
+    </section>
 
-   <section className='bg-white w-full h-fit relative '>
-    <GiftSet/>
-   </section>
+    <section className='bg-white w-full h-fit relative '>
+     <GiftSet/>
+    </section>
 
-   <section>
+     <section>
     <Snap/>
-   </section>
+    </section>  {/**/}
 
 
 

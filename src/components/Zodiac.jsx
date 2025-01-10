@@ -4,14 +4,14 @@ import { Link } from 'react-router'
 
 function Zodiac() {
   return (
-    <div className='w-full max-w-screen-xl mx-auto h-fit flex flex-col items-center  mt-16 '>
+    <div className='w-full max-w-screen-xl mx-auto h-fit flex flex-col items-center p-4 mt-16 '>
 
         
 
-        <h2 className=' font-poppins text-3xl tracking-tight text-gray-800 font-normal'>
+        <h2 className=' font-poppins text-lg md:text-2xl lg:text-3xl text-center  tracking-tight text-gray-800 font-normal'>
         Check out our awesome selection of zodiac-based gem specials!
         </h2>
-        <p className='text-lg text-gray-500 font-poppins font-normal mt-4 mb-16'>
+        <p className='text-sm  md:text-lg lg:text-xl text-center text-gray-500 font-poppins font-normal mt-4 mb-16'>
         Embrace the Mystique of Oud: Timeless Luxury and Exotic Elegance Await
         </p>
 
@@ -27,7 +27,7 @@ function Zodiac() {
                    <img src={item.image} alt=""  />
                    </div>
 
-                    <h4 className='text-xl font-semibold font-poppins text-gray-800 my-8 '>
+                    <h4 className='text-sm  md:text-lg lg:text-xl font-semibold font-poppins text-gray-800 my-8 '>
                         {item.title}
                     </h4>
                 </div>

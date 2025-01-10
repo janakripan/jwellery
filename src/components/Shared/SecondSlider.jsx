@@ -30,14 +30,14 @@ function SecondSlider() {
   };
 
   return (
-    <div className="absolute -right-1/3   h-fit w-fit  ">
+    <div className="absolute lg:-right-1/3 -right-[325px] md:-right-[450px]  h-fit w-fit  ">
 
 <div className="relative w-full h-fit max-w-screen-xl mx-auto ">
      
-     <div className="flex justify-center items-center space-x-4 ">
+     <div className="flex  justify-center items-center space-x-4 ">
       
-       <div className="flex-none w-1/3 translate-y-16 h-[582px] text-white scale-105 transition-all duration-500 ease-in-out flex items-center justify-center text-lg font-bold">
-         <div className="relative w-full max-w-[404px] h-full overflow-x-hidden flex justify-center ">
+       <div className="flex-none md:w-1/3 translate-y-14 lg:translate-y-16 h-[291px] md:h-[436px] lg:h-[582px] text-white scale-105 transition-all duration-500 ease-in-out flex items-center justify-center text-lg font-bold">
+         <div className="relative w-full max-w-[202px] md:max-w-[303px] lg:max-w-[404px] h-full overflow-x-hidden flex justify-center ">
            <img
              src={slides[(currentIndex + slides.length - 1) % slides.length].image}
              alt=""
@@ -46,9 +46,9 @@ function SecondSlider() {
              
              onTransitionEnd={handleTransitionEnd} 
            />
-          <div className={`absolute z-50 bottom-10 left-10 w-7/12 flex flex-row items-end justify-between gap-2 ${  isTransitioning ? "opacity-5" : "opacity-100" }`}>
+          <div className={`absolute z-50 bottom-4 left-4 md:bottom-10 md:left-10 w-7/12 flex flex-row items-end justify-between gap-2 ${  isTransitioning ? "opacity-5" : "opacity-100" }`}>
 
-               <div className=" px-2 w-full pt-4 pb-8 h-fit bg-white/90">
+               <div className=" px-2 w-full pt-2 pb-4 md:pt-4 md:pb-8 h-fit bg-white/90">
                    <div className="flex flex-col gap-y-2">
                        <span className="text-xs text-gray-500 font-medium font-poppins flex flex-row items-center gap-x-1">
                        {slides[(currentIndex + slides.length - 1) % slides.length].id}
@@ -57,14 +57,14 @@ function SecondSlider() {
                        </span>
 
                        <div>
-                       <h6 className="text-xl font-bold font-poppins text-gray-800">
+                       <h6 className=" text-sm md:text-xl font-bold font-poppins text-gray-800">
                            {slides[(currentIndex + slides.length - 1) % slides.length].title}
                        </h6>
                    </div>
 
                    </div>
                </div>
-               <button className=" aspect-square p-2 text-white bg-[#22223B] flex items-center justify-center hover:scale-110 transition-all duration-300">
+               <button className=" scale-50 md:scale-100 aspect-square p-2 text-white bg-[#22223B] flex items-center justify-center md:hover:scale-110 transition-all duration-300">
                    <ArrowForwardIcon/>
                </button>
 
@@ -75,8 +75,8 @@ function SecondSlider() {
        </div>
 
      
-       <div className="flex-none w-1/3 h-[486px] transition-all duration-500 ease-in-out flex items-center justify-center text-lg font-bold">
-         <div className="relative w-full  max-w-[372px]  h-full overflow-hidden flex justify-center">
+       <div className="  flex-none w-1/3 h-[243px] md:h-[364px] lg:h-[486px] transition-all duration-500 ease-in-out flex items-center justify-center text-lg font-bold">
+         <div className="relative w-full max-w-[136px] md:max-w-[279px] lg:max-w-[372px]  h-full overflow-hidden flex justify-center">
            <img
              src={slides[currentIndex].image}
              alt=""
@@ -88,8 +88,8 @@ function SecondSlider() {
        </div>
 
        
-       <div className="flex-none w-1/3 h-[486px]  transition-all duration-500 ease-in-out flex items-center justify-center text-lg font-bold">
-         <div className="relative w-full  max-w-[372px] h-full overflow-hidden">
+       <div className=" flex-none w-1/3 h-[243px] md:h-[364px] lg:h-[486px]  transition-all duration-500 ease-in-out flex items-center justify-center text-lg font-bold">
+         <div className="relative w-full max-w-[136px]  md:max-w-[279px] lg:max-w-[372px] h-full overflow-hidden">
            <img
              src={slides[(currentIndex + 1) % slides.length].image}
              alt=""
@@ -112,13 +112,13 @@ function SecondSlider() {
     
      <button
        onClick={nextSlide}
-       className="absolute scale-90 hover:scale-100 transition-all duration-300  top-1/2 transform -translate-y-1/2 -translate-x-1/2 right-1/4 bg-white text-gray-700 p-3 rounded-full flex items-center justify-center shadow-lg "
+       className="absolute  scale-75 md:scale-90 md:hover:scale-100 transition-all duration-300  top-1/2 transform -translate-y-1/2 -translate-x-1/2 left-1/3 md:right-2/4 lg:right-1/4 bg-white text-gray-700 p-3 w-fit rounded-full flex items-center justify-center shadow-lg "
      >
        <ArrowForwardIosIcon/>
      </button>
 
      
-     <div className="absolute bottom-4 left-[500px] transform -translate-x-2/3 translate-y-14 flex space-x-2">
+     <div className="absolute bottom-4 left-[100px] md:left-[400px] lg:left-[500px] transform -translate-x-2/3 translate-y-32 md:translate-y-14 flex space-x-2">
        {slides.map((_, index) => (
         <div className={`flex items-center justify-center p-1 rounded-full ${
             currentIndex === index ? "border-black border-[1px] " : ""

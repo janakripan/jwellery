@@ -11,6 +11,8 @@ function App() {
   return (
     <>
 
+<main className='overflow-x-hidden'>
+
     <NavBar />
 
     <div id='details'>
@@ -18,6 +20,7 @@ function App() {
     </div>
     
     <Footer />
+</main>
       
     </>
   )
