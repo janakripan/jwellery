@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../assets/logoNavbar.png'
+import logo from '../assets/logoMain.png'
 import SearchBar from './Shared/SearchBar'
 import navbarIcons from '../constants/navbarIcons';
 import { Link } from 'react-router';
@@ -7,14 +7,43 @@ import { navlinks } from '../constants/navlinks';
 import MenuIcon from '@mui/icons-material/Menu';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import CloseIcon from '@mui/icons-material/Close';
-
+import { motion, AnimatePresence  } from "motion/react"
+import { easeIn, easeInOut, easeOut } from 'motion';
 
 function NavBar() {
 
     const [isOpen, setIsOpen] = useState(false)
+    
 
     const toggleMenu = () => {
         setIsOpen(!isOpen); 
+        
+      };
+
+      const listVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            type: "tween" ,
+            staggerChildren: .25 , // Animates child items one after another
+             ease: "easeIn"
+          },
+        },
+      };
+    
+      // Variants for individual items
+      const itemVariants = {
+        hidden: { opacity: 0, y: 10 },
+        visible: { opacity: 1,
+                    y: 0,
+                    transition:{
+                        type: "tween" ,
+                        duration: .5,
+                        ease: "easeInOut"
+                    }
+                 },
+        
       };
 
     const handleSearchSubmit = (query) => {
@@ -29,7 +58,7 @@ function NavBar() {
         <div className="max-w-screen-xl h-fit mx-auto w-full  flex flex-row">
             <div className=' w-full lg:w-5/12 flex justify-between items-center  p-4 lg:pr-36'>
                 <div>
-                    <img src={logo} className='w-16  md:w-28 lg:scale-100' alt="logo" />
+                    <img src={logo} className='w-20  md:w-32 lg:scale-100' alt="logo" />
                 </div>
                 <div>
                     <h1 className='text-gray-900 text-2xl md:text-4xl  font-semibold font-merriweather-sans'>
@@ -107,29 +136,47 @@ function NavBar() {
 
 
 
-        </div>   <div className={`lg:hidden z-50 w-10/12 md:w-6/12 h-full bg-white/100 flex flex-col  items-start absolute -bottom-32 right-0 transition-all duration-500 transform ${
+        </div>  
+        <div className={`lg:hidden z-50 w-10/12 md:w-6/12 h-full bg-white/100 flex flex-col  items-start absolute -bottom-32 right-0 transition-all duration-500 transform ${
                             isOpen ? 'translate-x-0' : 'translate-x-full'
                         }`} >
 
                             <SearchBar
                                 placeholder='Search Here'
                                 onSubmit={handleSearchSubmit} 
-                                searchStyles="w-full border-2 border-gray-200 mb-2 "
+                                searchStyles="w-full ml-4 border-2 border-gray-200 mb-2 "
                             />
-                            <ul className=' w-full h-screen bg-white pb-5 gap-y-8'>
+                            
+                            <motion.ul
+                            variants={listVariants}
+                            initial="hidden"
+                            animate={isOpen ? "visible" : "hidden"}
+                             className=' w-full h-screen bg-white pb-16 gap-y-8'>
                             {navlinks.map((item, index) => (
-                            <Link key={index} to={item.path} >
+                            < li
+                               key={index}
+                               
+                                 className='  pl-8 w-full  border-b  hover:bg-gray-300 rounded-lg transition-all duration-300 
+                                 text-gray-800  text-base font-poppins'>
+                                    
+                                <motion.div 
+                                variants={itemVariants}
+                                className='h-full w-full flex items-center'>
+                                <Link className='w-full h-full py-6  flex flex-row  items-center ' to={item.path} >
 
-                                <li className=' pt-6  w-full mb-4 pb-4 pl-2 hover:bg-gray-300 rounded-lg transition-all duration-300  text-gray-800  text-base font-poppins'>
+                                
                                     {item.title}
-                                </li>
 
-                            </Link>
+                                </Link>
+                                </motion.div>
+                            <div className='w-full h-[1px] bg-gray-400 -4 '></div>
+                          </li>
 
                         ))}
-                            </ul>
+                            </motion.ul>
+                            
 
-                        </div>
+        </div>
       
     </div>
   )
