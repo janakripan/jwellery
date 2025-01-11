@@ -156,7 +156,7 @@ function NavBar() {
                             < li
                                key={index}
                                
-                                 className='  pl-8 w-full  border-b  hover:bg-gray-300 rounded-lg transition-all duration-300 
+                                 className='  pl-8 w-full   hover:bg-gray-300 rounded-lg transition-all duration-300 
                                  text-gray-800  text-base font-poppins'>
                                     
                                 <motion.div 
