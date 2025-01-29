@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { products } from '../constants/products'
 import ProductCard from './Shared/ProductCard'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import ShareIcon from '@mui/icons-material/Share';
+import CartContext from '../contexts/CartContext';
 
 function Products() {
+    const {cartItems, addToCart } = useContext(CartContext)
+    console.log(cartItems)
   return (
     <div className='w-full max-w-screen-xl mx-auto flex flex-col items-center p-4'>
 
@@ -32,7 +35,9 @@ function Products() {
 
                     <div className='w-full h-fit flex flex-col items-center '>
 
-                        <button className='px-6 py-2 text-xs md:text-sm text-gray-950 bg-white font-bold '>
+                        <button
+                        onClick={()=>addToCart(item)}
+                        className='px-6 py-2 text-xs md:text-sm text-gray-950 bg-white font-bold '>
                             Add To Cart
                         </button>
 

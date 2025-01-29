@@ -1,29 +1,24 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import NavBar from './components/NavBar'
-import Footer from './components/Footer'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function App() {
-
-
   return (
     <>
+      <main className="overflow-x-hidden">
+        <NavBar />
 
-<main className='overflow-x-hidden'>
+        <div id="details">
+          <Outlet />
+        </div>
 
-    <NavBar />
-
-    <div id='details'>
-    <Outlet />
-    </div>
-    
-    <Footer />
-</main>
-      
+        <Footer />
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

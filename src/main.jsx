@@ -10,15 +10,19 @@ import AuthLayout from './Routes/AuthLayout.jsx';
 import Home from './Routes/Home.jsx';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Cart from './Routes/Cart.jsx';
+import CartProvider from './contexts/CartProvider.jsx';
 
 
 createRoot(document.getElementById('root')).render(
+  <CartProvider>
   <StrictMode>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} >
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="cart" element={<Cart/>} />
       </Route>
 
       <Route element={<AuthLayout />}>
@@ -27,5 +31,6 @@ createRoot(document.getElementById('root')).render(
       </Route>
     </Routes>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
+  </CartProvider>,
 )

@@ -17,7 +17,8 @@ const navbarIcons = [
     },
     {
         icon: ShoppingCartOutlinedIcon,
-        path : '',
+        path : 'cart',
+        count : true,
 
     },
 ]

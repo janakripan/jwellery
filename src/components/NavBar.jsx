@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import logo from '../assets/logoMain.png'
 import SearchBar from './Shared/SearchBar'
 import navbarIcons from '../constants/navbarIcons';
@@ -9,6 +9,8 @@ import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import { motion, AnimatePresence  } from "motion/react"
 import { easeIn, easeInOut, easeOut } from 'motion';
+import CartContext from '../contexts/CartContext';
+import { span } from 'motion/react-m';
 
 function NavBar() {
 
@@ -50,6 +52,7 @@ function NavBar() {
         alert(`Searching for: ${query}`);
       };
 
+      const {uniqueCartItems} = useContext(CartContext)
 
 
   return (
@@ -102,9 +105,10 @@ function NavBar() {
                     <ul className='w-fit  flex flex-row ml-2 items-center gap-x-3'>
                         {navbarIcons.map((item, index) => (
                             <Link key={index} to={item.path}
-                                className='p-4 text-gray-800  '
+                                className='p-4 relative text-gray-800  '
                             >
                                 <item.icon />
+                                {item.count === true &&(<span className=' absolute right-0 top-1 bg-red-400 p-1 px-2 flex items-center justify-center rounded-full text-xs whitespace-nowrap'>{uniqueCartItems.length}</span>)}
                             </Link>
                         ))}
                     </ul>

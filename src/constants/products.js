@@ -2,6 +2,7 @@ import product1 from '../assets/product-1.png'
 
 export const products = [
     {
+        id : 1 ,
         image:product1,
         badge:"-30%" ,
         title:'Slytherine',
@@ -14,6 +15,7 @@ export const products = [
 
     },
     {
+        id : 2 ,
         image:product1,
         badge:'-30%',
         title:'Slytherine',
@@ -25,6 +27,7 @@ export const products = [
 
     },
     {
+        id : 3 ,
         image:product1,
         badge:'-30%',
         title:'Slytherine',
@@ -36,6 +39,7 @@ export const products = [
 
     },
     {
+        id : 4 ,
         image:product1,
         badge:'-30%',
         title:'Slytherine',
@@ -47,6 +51,7 @@ export const products = [
 
     },
     {
+        id : 5 ,
         image:product1,
         badge:'-30%',
         title:'Slytherine',
@@ -58,6 +63,7 @@ export const products = [
 
     },
     {
+        id : 6 ,
         image:product1,
         badge:'-30%',
         title:'Slytherine',
@@ -69,6 +75,7 @@ export const products = [
 
     },
     {
+        id : 7 ,
         image:product1,
         badge:'new',
         title:'Slytherine',
@@ -80,6 +87,7 @@ export const products = [
 
     },
     {
+        id : 8 ,
         image:product1,
         badge:'-30%',
         title:'Slytherine',
