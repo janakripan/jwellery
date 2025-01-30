@@ -8,9 +8,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import CloseIcon from '@mui/icons-material/Close';
 import { motion, AnimatePresence  } from "motion/react"
-import { easeIn, easeInOut, easeOut } from 'motion';
 import CartContext from '../contexts/CartContext';
-import { span } from 'motion/react-m';
+
 
 function NavBar() {
 
@@ -56,9 +55,9 @@ function NavBar() {
 
 
   return (
-    <div className='w-full h-fit py-6 relative '>
+    <div className='w-full h-fit py-6   fixed top-0 z-50 bg-white'>
 
-        <div className="max-w-screen-xl h-fit mx-auto w-full  flex flex-row">
+        <div className="max-w-screen-xl h-fit mx-auto w-full  flex flex-row ">
             <div className=' w-full lg:w-5/12 flex justify-between items-center  p-4 lg:pr-36'>
                 <div>
                     <img src={logo} className='w-20  md:w-32 lg:scale-100' alt="logo" />

@@ -8,7 +8,7 @@ import Snap from '../components/Snap'
 
 function Home() {
   return (
-   <main className='bg-[#F2E9E4]  mt-16 overflow-x-hidden'>
+   <main className='bg-[#F2E9E4]  mt-52 overflow-x-hidden'>
 
       
     <section>
