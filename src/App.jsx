@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
 
         <Footer />
       </main>
+      <ScrollToTop/>
     </>
   );
 }

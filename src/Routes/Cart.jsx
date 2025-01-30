@@ -18,18 +18,18 @@ function Cart() {
   }
   return (
     <div className="w-full max-w-screen-xl h-fit min-h-[75vh] mx-auto  ">
-      <div className="w-full h-fit py-8  flex items-center justify-between ">
+      <div className="w-full h-fit py-8  flex items-center justify-between px-4 ">
         <h1 className="text-5xl text-gray-800 font-bold font-poppins ">
           Your Cart
         </h1>
         <Link to={"/shop"}>
-          <p className="font-medium text-xl  text-gray-800 ">
+          <p className=" hidden md:flex font-medium text-xl  text-gray-800 ">
             Contunue Shopping
           </p>
           <div className=" w-full h-[1px] bg-gray-300 mt-1 "></div>
         </Link>
       </div>
-      <div className="w-full h-fit ">
+      <div className="w-full h-fit px-4 ">
         <div className="w-full h-fit flex flex-row justify-between mb-2 items-center">
           <span className=" text-medium font-medium font-poppins  text-gray-500 ">
             Product
@@ -44,18 +44,18 @@ function Cart() {
 
         <div className="h-[1px] w-full bg-gray-400 opacity-50 "></div>
       </div>
-      <div className="w-full h-fit   ">
-        <ul className="w-full">
+      <div className="w-full h-fit px-4  ">
+        <ul className="w-full flex flex-col">
           {uniqueCartItems.map((item, index) => (
             <li
               key={index}
               className="w-full shadow-md my-2  h-fit py-4 flex flex-row justify-between "
             >
-              <div className="flex flex-row justify-between gap-4 items-center">
-                <div className=" w-44 h-44  overflow-hidden">
+              <div className="flex flex-col md:flex-row h-fit mr-16 md:mr-0 justify-between gap-4 items-center md:items-start">
+                <div className=" w-24 aspect-auto  md:w-44 md:h-44  overflow-hidden">
                   <img src={item.image} alt="" />
                 </div>
-                <div className="h-full flex flex-col ">
+                <div className="h-full flex flex-col  ">
                     <span className="text-lg font-semibold text-gray-800 font-poppins">
                         {item.title}
                     </span>
