@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 function App() {
   return (
     <>
-      <main className="overflow-x-hidden relative ">
+      <main className="overflow-x-hidden relative pt-44">
         <NavBar />
 
         <div id="details">

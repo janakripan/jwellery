@@ -37,7 +37,7 @@ function Products() {
 
                         <button
                         onClick={()=>addToCart(item)}
-                        className='px-6 py-2 text-xs md:text-sm text-gray-950 bg-white font-bold '>
+                        className='px-6 py-2 text-xs md:text-sm hover:scale-105 active:scale-95 transition-all duration-200 text-gray-950 bg-white font-bold '>
                             Add To Cart
                         </button>
 

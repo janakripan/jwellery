@@ -55,7 +55,7 @@ function NavBar() {
 
 
   return (
-    <div className='w-full h-fit py-6   fixed top-0 z-50 bg-white'>
+    <div className='w-full h-fit py-6   fixed top-0 z-50 bg-white shadow-md'>
 
         <div className="max-w-screen-xl h-fit mx-auto w-full  flex flex-row ">
             <div className=' w-full lg:w-5/12 flex justify-between items-center  p-4 lg:pr-36'>
@@ -107,7 +107,7 @@ function NavBar() {
                                 className='p-4 relative text-gray-800  '
                             >
                                 <item.icon />
-                                {item.count === true &&(<span className=' absolute right-0 top-1 bg-red-400 p-1 px-2 flex items-center justify-center rounded-full text-xs whitespace-nowrap'>{uniqueCartItems.length}</span>)}
+                                {uniqueCartItems.length>0 && item.count===true  &&(<span className=' absolute right-0 top-1 bg-red-400 p-1 px-2 flex items-center justify-center rounded-full text-xs whitespace-nowrap'>{uniqueCartItems.length}</span>)}
                             </Link>
                         ))}
                     </ul>

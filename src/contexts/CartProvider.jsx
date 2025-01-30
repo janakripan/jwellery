@@ -11,6 +11,15 @@ const CartProvider = ({ children }) => {
   const removeFromCart = (id) => {
     setCartitems((prevCart) => prevCart.filter((item) => item.id !== id));
   };
+  const removeItem = (id) => {
+    setCartitems((prevCart) => {
+      const indexToRemove = prevCart.findIndex((item) => item.id === id);
+      if (indexToRemove !== -1) {
+        return prevCart.filter((_, index) => index !== indexToRemove);
+      }
+      return prevCart;
+    });
+  };
 
   
     const displayItems= cartItems.reduce((acc,item)=>{
@@ -21,8 +30,13 @@ const CartProvider = ({ children }) => {
         }
         return acc; 
   },{})
+  console.log(displayItems)
+  
+
 
   const uniqueCartItems = Object.values(displayItems)
+
+ 
 
   
     
@@ -32,7 +46,7 @@ const CartProvider = ({ children }) => {
   
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart,uniqueCartItems }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart,uniqueCartItems,removeItem }}>
       {children}
     </CartContext.Provider>
   );
