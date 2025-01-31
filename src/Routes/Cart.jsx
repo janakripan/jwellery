@@ -96,17 +96,18 @@ function Cart() {
           ))}
         </ul>
       </div>
+      <div className="w-full h-fit py-16  md:hidden flex flex-row items-center justify-center ">
+
+      <Link to={"/shop"}>
+          <p className=" font-medium text-xl  text-white py-2 px-4 bg-[#22223B] rounded-md ">
+            Contunue Shopping
+          </p>
+          {/* <div className=" w-full h-[1px] bg-gray-300 mt-1 "></div> */}
+        </Link>
+
+      </div>
     </div>
   );
 }
 
 export default Cart;
-
-// image={item.image}
-//                 badge={item.badge}
-//                 title={item.title}
-//                 description={item.Description}
-//                 price={item.price}
-//                 currency={item.currency}
-//                 altPrice={item.altPrice}
-//                 badgeType={item.badgeType}

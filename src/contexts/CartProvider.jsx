@@ -21,32 +21,28 @@ const CartProvider = ({ children }) => {
     });
   };
 
-  
-    const displayItems= cartItems.reduce((acc,item)=>{
-      if (acc[item?.id]) {
-          acc[item.id].count += 1;
-        } else {
-          acc[item.id] = { ...item, count: 1 };
-        }
-        return acc; 
-  },{})
-  console.log(displayItems)
-  
+  const displayItems = cartItems.reduce((acc, item) => {
+    if (acc[item?.id]) {
+      acc[item.id].count += 1;
+    } else {
+      acc[item.id] = { ...item, count: 1 };
+    }
+    return acc;
+  }, {});
+  console.log(displayItems);
 
-
-  const uniqueCartItems = Object.values(displayItems)
-
- 
-
-  
-    
-
-
-  
-  
+  const uniqueCartItems = Object.values(displayItems);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart,uniqueCartItems,removeItem }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        uniqueCartItems,
+        removeItem,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

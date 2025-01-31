@@ -13,11 +13,14 @@ import "slick-carousel/slick/slick-theme.css";
 import Cart from './Routes/Cart.jsx';
 import CartProvider from './contexts/CartProvider.jsx';
 import Shop from './Routes/Shop.jsx';
+import Whishlist from './Routes/Whishlist.jsx';
+import WhishlistProvider from './contexts/WhishlistProvider.jsx';
 
 
 createRoot(document.getElementById('root')).render(
 
   <CartProvider>
+    <WhishlistProvider>
   <StrictMode>
     <BrowserRouter>
     <Routes>
@@ -26,6 +29,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="about" element={<About />} />
         <Route path="cart" element={<Cart/>} />
         <Route path="shop" element={<Shop/>} />
+        <Route path="whishlist" element={<Whishlist/>} />
       </Route>
 
       <Route element={<AuthLayout />}>
@@ -35,5 +39,6 @@ createRoot(document.getElementById('root')).render(
     </Routes>
     </BrowserRouter>
   </StrictMode>
+  </WhishlistProvider>
   </CartProvider>,
 )

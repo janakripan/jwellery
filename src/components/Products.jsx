@@ -1,14 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext} from 'react'
 import { products } from '../constants/products'
 import ProductCard from './Shared/ProductCard'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import ShareIcon from '@mui/icons-material/Share';
 import CartContext from '../contexts/CartContext';
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import WhishlistContext from '../contexts/Whishlistcontext';
 
 function Products() {
-    const {cartItems, addToCart } = useContext(CartContext)
-    console.log(cartItems)
+    const { addToCart } = useContext(CartContext)
+    const {whishlist,togglWhishlist} = useContext(WhishlistContext)
+
+    // const isWishlisted = whishlist.some((wishlistItem) => wishlistItem.id === item.id);
+
+
+   
   return (
     <div className='w-full max-w-screen-xl mx-auto flex flex-col items-center p-4'>
 
@@ -42,17 +48,26 @@ function Products() {
                         </button>
 
                     </div>
-                    <div className='w-full px-4 flex flex-row justify-between mt-3 '>
-                        <button className='text-white text-xs md:text-sm font-poppins'>
+                    <div className='w-full px-4 flex flex-row justify-between items-center mt-3 '>
+                        <button className='text-white text-xs md:text-sm font-poppins flex flex-col items-center'>
                            <ShareIcon/> share
                         </button>
 
-                        <button className='text-white text-xs md:text-sm font-poppins'>
+                        <button
+                       
+                         className='text-white text-xs md:text-sm font-poppins flex flex-col items-center '>
                             <CompareArrowsIcon/> Compare
                         </button>
 
-                        <button className='text-white text-xs md:text-sm font-poppins'>
-                           <FavoriteBorderIcon/> Like
+                        <button
+                         onClick={()=>togglWhishlist(item)}
+                         className='text-white text-xs md:text-sm font-poppins flex flex-col items-center'>
+                           
+                           { whishlist.some((wishlistItem) => wishlistItem.id === item.id) ? (
+                               <AiFillHeart className="text-red-500 text-xl" />
+                             ) : (
+                               <AiOutlineHeart className="text-white text-xl hover:text-red-500" />
+                             )} Like
                         </button>
 
                     </div>

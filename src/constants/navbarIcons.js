@@ -13,7 +13,7 @@ const navbarIcons = [
     },
     {
         icon: FavoriteBorderOutlinedIcon,
-        path : '',
+        path : 'whishlist',
     },
     {
         icon: ShoppingCartOutlinedIcon,
