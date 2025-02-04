@@ -65,7 +65,7 @@ function Cart() {
       <button 
         onClick={()=>console.log(cartItems)}
         className="bg-gray-200 p-3 border-2 border-gray-700 rounded-lg h-fit w-fit">
-          placeholder
+          Place Order
         </button>
       </div>
     </div>
