@@ -3,35 +3,72 @@ import CartContext from "./CartContext";
 
 const CartProvider = ({ children }) => {
   const [cartItems, setCartitems] = useState([]);
+  const [inputValue, setInputValue] = useState(1);
+
+  const quantity = Number(inputValue);
+
 
   const addToCart = (item) => {
-    setCartitems((prev) => [...prev, item]);
+   setCartitems((prev)=>{
+    const existingItem = prev.find((prevItem)=>prevItem.id===item.id)
+    
+   if(existingItem){
+    return prev.map((singleItem)=>
+      singleItem.id===item.id
+    ? {...singleItem, count: quantity}
+    : singleItem
+    )
+   }
+   
+   return [...prev,{...item,count: quantity}]
+   
+   }
+    
+   )
+
+   setInputValue(1)
+  
+   
   };
+
+
+  const increaseItem = (id) =>{
+    setCartitems((prev)=>{
+      const toAdd = prev.find((item)=> item.id === id )
+      if(toAdd){
+        return prev.map((singleItem)=>
+          singleItem.id === id
+        ? {...singleItem, count: singleItem.count + 1 }
+        :singleItem
+        )
+      }
+      return prev
+    })
+  }
 
   const removeFromCart = (id) => {
     setCartitems((prevCart) => prevCart.filter((item) => item.id !== id));
   };
   const removeItem = (id) => {
     setCartitems((prevCart) => {
-      const indexToRemove = prevCart.findIndex((item) => item.id === id);
-      if (indexToRemove !== -1) {
-        return prevCart.filter((_, index) => index !== indexToRemove);
+      const ToRemove = prevCart.find((item) => item.id === id);
+      if (ToRemove.count > 1) {
+        return prevCart.map((prevItem)=>
+          prevItem.id === id
+        ? {...prevItem , count: prevItem.count - 1}
+        : prevItem
+        )
+        
       }
+      alert("There is only one item in the cart")
       return prevCart;
     });
   };
+  
 
-  const displayItems = cartItems.reduce((acc, item) => {
-    if (acc[item?.id]) {
-      acc[item.id].count += 1;
-    } else {
-      acc[item.id] = { ...item, count: 1 };
-    }
-    return acc;
-  }, {});
-  console.log(displayItems);
 
-  const uniqueCartItems = Object.values(displayItems);
+
+ 
 
   return (
     <CartContext.Provider
@@ -39,8 +76,10 @@ const CartProvider = ({ children }) => {
         cartItems,
         addToCart,
         removeFromCart,
-        uniqueCartItems,
         removeItem,
+        inputValue,
+        setInputValue,
+        increaseItem
       }}
     >
       {children}

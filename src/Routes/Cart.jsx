@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext} from "react";
 import CartContext from "../contexts/CartContext";
 import { Link } from "react-router";
-import { MdOutlineDelete } from "react-icons/md";
+
+import CartItems from "../components/CartItems";
 
 function Cart() {
-  const { removeFromCart, uniqueCartItems,removeItem,addToCart } = useContext(CartContext);
+  const {  cartItems  } =
+    useContext(CartContext);
 
-  console.log(uniqueCartItems);
-  if (uniqueCartItems.length === 0) {
+
+  if (cartItems.length === 0) {
     return (
       <div className="min-h-[75vh] h-fit flex items-center justify-center ">
         <h3 className="text-5xl text-gray-800 font-bold">
@@ -46,65 +48,18 @@ function Cart() {
       </div>
       <div className="w-full h-fit px-4  ">
         <ul className="w-full flex flex-col">
-          {uniqueCartItems.map((item, index) => (
-            <li
-              key={index}
-              className="w-full shadow-md my-2  h-fit py-4 flex flex-row justify-between "
-            >
-              <div className="flex flex-col md:flex-row h-fit mr-16 md:mr-0 justify-between gap-4 items-center md:items-start">
-                <div className=" w-24 aspect-auto  md:w-44 md:h-44  overflow-hidden">
-                  <img src={item.image} alt="" />
-                </div>
-                <div className="h-full flex flex-col  ">
-                    <span className="text-lg font-semibold text-gray-800 font-poppins">
-                        {item.title}
-                    </span>
-                    <span className="text-base font-medium text-gray-800">
-                        {item.price}  {item.currency}
-                    </span>
-
-                </div>
-              </div>
-              <div className=" w-48 flex flex-row h-10">
-                <div className=" border-[1px] border-gray-300 flex-1 flex justify-between  ">
-                  <button
-                  onClick={()=>removeItem(item.id)}
-                   className="text-gray-400 h-full flex items-center px-2">
-                    -
-                  </button>
-                  <span className=" h-full text-base font-medium flex flex-row items-center ">
-                    {item.count}
-                  </span>
-                  <button
-                  onClick={()=>addToCart(item)}
-                   className="text-gray-400 h-full flex items-center px-2">
-                    +
-                  </button>
-                </div>
-                <button
-                  onClick={() => removeFromCart(item.id)}
-                  className="ml- text-xl text-gray-500 h-full p-4 flex items-center "
-                >
-                  <MdOutlineDelete />
-                </button>
-              </div>
-              <div className=" font-medium font-poppins text-base w-36 flex justify-end ">
-                {item.price * item.count}
-                {""} {item.currency}
-              </div>
-            </li>
+          {cartItems.map((item, index) => (
+            <CartItems key={index} item={item} />
           ))}
         </ul>
       </div>
       <div className="w-full h-fit py-16  md:hidden flex flex-row items-center justify-center ">
-
-      <Link to={"/shop"}>
+        <Link to={"/shop"}>
           <p className=" font-medium text-xl  text-white py-2 px-4 bg-[#22223B] rounded-md ">
             Contunue Shopping
           </p>
           {/* <div className=" w-full h-[1px] bg-gray-300 mt-1 "></div> */}
         </Link>
-
       </div>
     </div>
   );

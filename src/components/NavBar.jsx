@@ -48,7 +48,7 @@ function NavBar() {
     alert(`Searching for: ${query}`);
   };
 
-  const { uniqueCartItems } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
 
   return (
     <div className="w-full h-fit py-6   fixed top-0 z-50 bg-white shadow-md">
@@ -92,9 +92,9 @@ function NavBar() {
                   className="p-4 relative text-gray-800  "
                 >
                   <item.icon />
-                  {uniqueCartItems.length > 0 && item.count === true && (
+                  {cartItems?.length > 0 && item.count === true && (
                     <span className=" absolute right-0 top-1 bg-red-400 p-1 px-2 flex items-center justify-center rounded-full text-xs whitespace-nowrap">
-                      {uniqueCartItems.length}
+                      {cartItems.length}
                     </span>
                   )}
                 </Link>
@@ -160,9 +160,9 @@ function NavBar() {
                 className="p-4 relative text-gray-800  "
               >
                 <item.icon style={{fontSize:'30px'}} />
-                {uniqueCartItems.length > 0 && item.count === true && (
+                {cartItems?.length > 0 && item.count === true && (
                   <span className=" absolute right-0 top-1 bg-red-400 p-1 px-2 flex items-center justify-center rounded-full text-xs whitespace-nowrap">
-                    {uniqueCartItems.length}
+                    {cartItems.length}
                   </span>
                 )}
               </Link>

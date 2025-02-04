@@ -9,6 +9,7 @@ export const products = [
         Description:'on brand',
         currency:'AED',
         price:'210.00',
+        count:'',
         altPrice:'300',
         badgeType: 'discount'
          
@@ -23,6 +24,7 @@ export const products = [
         currency:'AED',
         price:'210.00',
         altPrice:'300',
+        count:'',
          badgeType: 'discount'
 
     },
@@ -35,6 +37,7 @@ export const products = [
         currency:'AED',
         price:'210.00',
         altPrice:'300',
+        count:'',
          badgeType: 'discount'
 
     },
@@ -47,6 +50,7 @@ export const products = [
         currency:'AED',
         price:'210.00',
         altPrice:'300',
+        count:'',
          badgeType: 'discount'
 
     },
@@ -59,6 +63,7 @@ export const products = [
         currency:'AED',
         price:'210.00',
         altPrice:'300',
+        count:'',
          badgeType: 'discount'
 
     },
@@ -71,7 +76,8 @@ export const products = [
         currency:'AED',
         price:'210.00',
         altPrice:'300',
-         badgeType: 'discount'
+         badgeType: 'discount',
+         count:'',
 
     },
     {
@@ -84,6 +90,7 @@ export const products = [
         price:'210.00',
         altPrice:'300',
         badgeType:'new',
+        count:'',
 
     },
     {
@@ -94,6 +101,7 @@ export const products = [
         Description:'on brand',
         currency:'AED',
         price:'210.00',
+        count:'',
         altPrice:'300',
          badgeType: 'discount'
 

@@ -1,4 +1,4 @@
-import React, { useContext} from 'react'
+import React, { useContext, useState} from 'react'
 import { products } from '../constants/products'
 import ProductCard from './Shared/ProductCard'
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
@@ -8,11 +8,12 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import WhishlistContext from '../contexts/Whishlistcontext';
 
 function Products() {
-    const { addToCart } = useContext(CartContext)
+ 
+    const { addToCart, cartItems } = useContext(CartContext)
     const {whishlist,togglWhishlist} = useContext(WhishlistContext)
 
     // const isWishlisted = whishlist.some((wishlistItem) => wishlistItem.id === item.id);
-
+  
 
    
   return (
@@ -44,7 +45,12 @@ function Products() {
                         <button
                         onClick={()=>addToCart(item)}
                         className='px-6 py-2 text-xs md:text-sm hover:scale-105 active:scale-95 transition-all duration-200 text-gray-950 bg-white font-bold '>
-                            Add To Cart
+                            {
+                              cartItems.some((previtems)=>previtems.id === item.id)
+                              ? " Item Added "
+                              : "Add To Cart"
+                              
+                            }
                         </button>
 
                     </div>
