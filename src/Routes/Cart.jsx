@@ -61,6 +61,11 @@ function Cart() {
           {/* <div className=" w-full h-[1px] bg-gray-300 mt-1 "></div> */}
         </Link>
       </div>
+      <button 
+        onClick={()=>console.log(cartItems)}
+        className="bg-gray-200 p-1 h-fit w-fit">
+          placeholder
+        </button>
     </div>
   );
 }

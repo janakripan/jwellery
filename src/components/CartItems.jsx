@@ -8,7 +8,7 @@ function CartItems({ item }) {
     removeFromCart,
     increaseItem,
     removeItem,
-    addToCart,
+    cartItems,
     inputValue,
     setInputValue,
   } = useContext(CartContext);
@@ -73,6 +73,7 @@ function CartItems({ item }) {
             <MdOutlineDelete />
           </button>
         </div>
+        
         <div className=" font-medium font-poppins text-base w-36 flex justify-end ">
           {item.price * item.count}
           {""} {item.currency}
