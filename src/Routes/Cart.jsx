@@ -61,11 +61,13 @@ function Cart() {
           {/* <div className=" w-full h-[1px] bg-gray-300 mt-1 "></div> */}
         </Link>
       </div>
+      <div className="w-full my-12 flex justify-end px-4">
       <button 
         onClick={()=>console.log(cartItems)}
-        className="bg-gray-200 p-1 h-fit w-fit">
+        className="bg-gray-200 p-3 border-2 border-gray-700 rounded-lg h-fit w-fit">
           placeholder
         </button>
+      </div>
     </div>
   );
 }
