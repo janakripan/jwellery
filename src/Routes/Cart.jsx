@@ -1,10 +1,11 @@
-import React, { useContext} from "react";
+import React, { useContext, useState} from "react";
 import CartContext from "../contexts/CartContext";
 import { Link } from "react-router";
 
 import CartItems from "../components/CartItems";
 
 function Cart() {
+  
   const {  cartItems  } =
     useContext(CartContext);
 
@@ -48,9 +49,20 @@ function Cart() {
       </div>
       <div className="w-full h-fit px-4  ">
         <ul className="w-full flex flex-col">
-          {cartItems.map((item, index) => (
-            <CartItems key={index} item={item} />
+          {cartItems.map((items, index) => (
+            <CartItems 
+            key={index} 
+            image={items.image}
+            title={items.title}
+            price={items.price}
+            currency={items.currency}
+            itemId={items.id}
+            items={items}
+            count={items.count}
+             />
+            
           ))}
+          
         </ul>
       </div>
       <div className="w-full h-fit py-16  md:hidden flex flex-row items-center justify-center ">
