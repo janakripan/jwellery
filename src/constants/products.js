@@ -15,7 +15,6 @@ export const products = [
         Description:'on brand',
         currency:'AED',
         price:'210.00',
-        count:'',
         altPrice:'300',
         badgeType: 'discount'
          
@@ -30,7 +29,6 @@ export const products = [
         currency:'AED',
         price:'210.00',
         altPrice:'300',
-        count:'',
          badgeType: 'discount'
 
     },
@@ -38,25 +36,23 @@ export const products = [
         id : 3 ,
         image:product3,
         badge:'-30%',
-        title:'Slytherine',
-        Description:'on brand',
+        title:'Zara',
+        Description:'Long lasting and lite',
         currency:'AED',
-        price:'210.00',
-        altPrice:'300',
-        count:'',
+        price:'1550.00',
+        altPrice:'4650.00',
          badgeType: 'discount'
 
     },
     {
         id : 4 ,
         image:product4,
-        badge:'-30%',
-        title:'Slytherine',
-        Description:'on brand',
+        badge:'-50%',
+        title:'Davidoff Cool Water',
+        Description:'The best brand ever',
         currency:'AED',
-        price:'210.00',
-        altPrice:'300',
-        count:'',
+        price:'1599.00',
+        altPrice:'2999',
          badgeType: 'discount'
 
     },
@@ -64,11 +60,11 @@ export const products = [
         id : 5 ,
         image:product5,
         badge:'-30%',
-        title:'Slytherine',
-        Description:'on brand',
+        title:'Zara',
+        Description:'Long lasting and lite',
         currency:'AED',
-        price:'210.00',
-        altPrice:'300',
+        price:'500.00',
+        altPrice:'1500',
         count:'',
          badgeType: 'discount'
 
@@ -103,12 +99,12 @@ export const products = [
         id : 8 ,
         image:product3,
         badge:'-30%',
-        title:'Slytherine',
-        Description:'on brand',
+        title:'Davidoff Cool Water',
+        Description:'The best brand ever',
         currency:'AED',
-        price:'210.00',
+        price:'300.00',
         count:'',
-        altPrice:'300',
+        altPrice:'900',
          badgeType: 'discount'
 
     },

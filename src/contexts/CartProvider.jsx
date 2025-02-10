@@ -9,14 +9,11 @@ const CartProvider = ({ children }) => {
       const existingItem = prev.find((prevItem) => prevItem.id === item.id);
 
       if (existingItem) {
-        return prev.map((singleItem) =>
-          singleItem.id === item.id
-            ? { ...singleItem, count: singleItem.count + 1 }
-            : singleItem
-        );
+        alert("Item Is Already Added")
+        return prev;
       }
-
-      return [...prev, { ...item, count: 1 }];
+      else
+     { return [...prev, { ...item, count: 1 }];}
     });
   };
   const updateQuantity = (item, newQuantity) => {
