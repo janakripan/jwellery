@@ -1,4 +1,10 @@
 import product1 from '../assets/product-1.png'
+import product2 from '../assets/product-2.png'
+import product3 from '../assets/product-3.png'
+import product4 from '../assets/product-4.png'
+import product5 from '../assets/product-5.png'
+import product6 from '../assets/product-6.png'
+
 
 export const products = [
     {
@@ -17,7 +23,7 @@ export const products = [
     },
     {
         id : 2 ,
-        image:product1,
+        image:product2,
         badge:'-30%',
         title:'Slytherine',
         Description:'on brand',
@@ -30,7 +36,7 @@ export const products = [
     },
     {
         id : 3 ,
-        image:product1,
+        image:product3,
         badge:'-30%',
         title:'Slytherine',
         Description:'on brand',
@@ -43,7 +49,7 @@ export const products = [
     },
     {
         id : 4 ,
-        image:product1,
+        image:product4,
         badge:'-30%',
         title:'Slytherine',
         Description:'on brand',
@@ -56,7 +62,7 @@ export const products = [
     },
     {
         id : 5 ,
-        image:product1,
+        image:product5,
         badge:'-30%',
         title:'Slytherine',
         Description:'on brand',
@@ -69,7 +75,7 @@ export const products = [
     },
     {
         id : 6 ,
-        image:product1,
+        image:product6,
         badge:'-30%',
         title:'Slytherine',
         Description:'on brand',
@@ -95,7 +101,7 @@ export const products = [
     },
     {
         id : 8 ,
-        image:product1,
+        image:product3,
         badge:'-30%',
         title:'Slytherine',
         Description:'on brand',

@@ -15,8 +15,11 @@ function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [startCardAnimations, setStartCardAnimations] = useState(false);
+
   const { totalPrice, cartItems } = useContext(CartContext);
   console.log(cartItems);
+
+  const currency = cartItems.length > 0 ? cartItems[0].currency : "";
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -36,7 +39,7 @@ function NavBar() {
   };
 
   const handleCartAnimationComplete = () => {
-    // Start animating the CartCards once the cart panel is fully opened
+   
     setStartCardAnimations(true);
   };
 
@@ -89,6 +92,7 @@ function NavBar() {
   const handleSearchSubmit = (query) => {
     alert(`Searching for: ${query}`);
   };
+
 
   return (
     <div className="w-full h-fit py-6   fixed top-0 z-50 bg-white shadow-md">
@@ -224,7 +228,7 @@ function NavBar() {
                       (including Tax){" "}
                     </span>
                   </p>
-                  <span>{totalPrice.toFixed(2)}</span>
+                  <span className=" font-semibold font-poppins text-lg ">{totalPrice.toFixed(2)} {currency} </span>
                 </div>
                 <div className="flex flex-row w-full gap-2 ">
                   <button

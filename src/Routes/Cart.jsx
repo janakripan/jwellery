@@ -1,7 +1,7 @@
 import React, { useContext} from "react";
 import CartContext from "../contexts/CartContext";
 import { Link } from "react-router";
-
+import { AnimatePresence, motion } from "motion/react";
 import CartItems from "../components/CartItems";
 
 function Cart() {
@@ -47,11 +47,26 @@ function Cart() {
 
         <div className="h-[1px] w-full bg-gray-400 opacity-50 "></div>
       </div>
+      
       <div className="w-full h-fit px-4  ">
+        <AnimatePresence>
         <ul className="w-full flex flex-col">
           {cartItems.map((items, index) => (
-            <CartItems 
-            key={index} 
+            <motion.div  
+            key={index}
+            initial={{ opacity: 0, y: 10 }}
+                      animate={
+                        { opacity: 1, y: 0 }
+                      }
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.1 * index,
+                        ease: "easeInOut",
+                      }}
+             >
+              <CartItems 
+            
             image={items.image}
             title={items.title}
             price={items.price}
@@ -60,10 +75,12 @@ function Cart() {
             items={items}
             count={items.count}
              />
+            </motion.div>
             
           ))}
           
         </ul>
+        </AnimatePresence>
       </div>
       <div className="w-full my-12 flex justify-end px-4">
       <button 
