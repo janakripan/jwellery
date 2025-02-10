@@ -8,14 +8,17 @@ const navbarIcons = [
    
    
     {
+        title:"login",
         icon: PermIdentityOutlinedIcon,
         path : '',
     },
     {
+        title: ' whishlist',
         icon: FavoriteBorderOutlinedIcon,
         path : 'whishlist',
     },
     {
+        title:'cart',
         icon: ShoppingCartOutlinedIcon,
         path : 'cart',
         count : true,

@@ -9,7 +9,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 function App() {
   return (
     <>
-      <main className="overflow-x-hidden relative pt-44">
+      <main className="overflow-x-hidden relative pt-44 ">
         <NavBar />
 
         <div id="details">

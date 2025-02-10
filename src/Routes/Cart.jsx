@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext} from "react";
 import CartContext from "../contexts/CartContext";
 import { Link } from "react-router";
 
@@ -65,14 +65,6 @@ function Cart() {
           
         </ul>
       </div>
-      <div className="w-full h-fit py-16  md:hidden flex flex-row items-center justify-center ">
-        <Link to={"/shop"}>
-          <p className=" font-medium text-xl  text-white py-2 px-4 bg-[#22223B] rounded-md ">
-            Contunue Shopping
-          </p>
-          {/* <div className=" w-full h-[1px] bg-gray-300 mt-1 "></div> */}
-        </Link>
-      </div>
       <div className="w-full my-12 flex justify-end px-4">
       <button 
         onClick={()=>console.log(cartItems)}
@@ -80,6 +72,15 @@ function Cart() {
           Place Order
         </button>
       </div>
+      <div className="w-full h-fit py-16  md:hidden flex flex-row items-center justify-center ">
+        <Link to={"/shop"}>
+          <p className=" font-medium text-xl  text-white py-2 px-4 bg-[#22223B] rounded-md ">
+            Contunue Shopping
+          </p>
+          <div className=" w-full h-[1px] bg-gray-300 mt-1 "></div>
+        </Link>
+      </div>
+      
     </div>
   );
 }
