@@ -15,6 +15,28 @@ function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [startCardAnimations, setStartCardAnimations] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const deltaY = scrollY - lastScrollY;
+
+      if (deltaY > 0) {
+        // Scrolling down → move navbar up
+        setOffset(-180); // Adjust based on your navbar height
+      } else {
+        // Scrolling up → move navbar down
+        setOffset(0);
+      }
+
+      setLastScrollY(scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const { totalPrice, cartItems } = useContext(CartContext);
   console.log(cartItems);
@@ -95,11 +117,14 @@ function NavBar() {
 
 
   return (
-    <div className="w-full h-fit py-6   fixed top-0 z-50 bg-white shadow-md">
+    <div className="w-full h-fit py-6   fixed top-0 z-50 bg-white shadow-md transition-all duration-300 "
+    style={{ transform: `translateY(${offset}px)` }}>
       <div className="max-w-screen-xl h-fit mx-auto w-full  flex flex-row ">
         <div className=" w-full lg:w-5/12 flex justify-between items-center  p-4 lg:pr-36">
           <div>
+            <Link to={'/'}>
             <img src={logo} className="w-20  md:w-32 lg:scale-100" alt="logo" />
+            </Link>
           </div>
           <div>
             <h1 className="text-gray-900 text-2xl md:text-4xl  font-semibold font-merriweather-sans">

@@ -6,13 +6,14 @@ import ShareIcon from '@mui/icons-material/Share';
 import CartContext from '../contexts/CartContext';
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import WhishlistContext from '../contexts/Whishlistcontext';
+import { motion } from "motion/react";
 
 function Products() {
  
     const { addToCart, cartItems } = useContext(CartContext)
     const {whishlist,togglWhishlist} = useContext(WhishlistContext)
 
-    // const isWishlisted = whishlist.some((wishlistItem) => wishlistItem.id === item.id);
+
   
 
    
@@ -26,7 +27,13 @@ function Products() {
         <ul className=' w-full h-fit grid grid-cols-2  lg:grid-cols-4 gap-4 md:gap-8'>
 
             {products.map((item,index)=>(
-               <li className='group relative hover:scale-105 transition-all duration-500  flex items-center justify-center ' key={index}>
+               <motion.li
+               initial={{ opacity: 0, y: 10 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: .5, delay: 0.2*index, ease: 'easeInOut' }}
+               viewport={{ once: true, amount: 0.2 }}
+     
+                className='group relative hover:scale-105 transition-all duration-500  flex items-center justify-center ' key={index}>
                 <ProductCard
                 image={item.image}
                 badge={item.badge}
@@ -81,14 +88,20 @@ function Products() {
                    
 
                 </div>
-               </li>
+               </motion.li>
             ))}
 
         </ul>
 
-        <button className='px-24 py-3 bg-white border-black border-2 text-gray-800 font-bold  font-poppins mt-6 lg:mt-2 hover:scale-110 transition-all duration-300 mb-16 '>
+        <motion.button 
+         initial={{ opacity: 0, y: 20 }}
+         whileInView={{ y: 0 , opacity: 1,}}
+         transition={{ duration: .5, delay: 0.2, ease: 'easeInOut' }}
+         viewport={{ once: true, amount: 0.2 }}
+
+        className='px-24 py-3 bg-white border-black border-2 text-gray-800 font-bold  font-poppins mt-6 lg:mt-2 hover:scale-110 transition-all duration-300 mb-16 '>
                         Show More
-        </button>
+        </motion.button>
 
       
     </div>
